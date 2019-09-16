@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sample.API.Middlewares;
 using Sample.Core.Models;
 using Sample.Core.Repositories;
 using Sample.Persistence.MySQL;
@@ -75,8 +76,8 @@ namespace Sample.API
                 c.RoutePrefix = string.Empty;
             });
 
+            app.UseMiddleware<BasicAuthMiddleware>();
             app.UseStaticFiles();
-
             app.UseMvc();
         }
     }

@@ -24,7 +24,7 @@ namespace Sample.Service
 
         public Person Load(int id)
         {
-            throw new NotImplementedException();
+            return _repository.Load(id);
         }
 
         public List<Person> LoadAll()
