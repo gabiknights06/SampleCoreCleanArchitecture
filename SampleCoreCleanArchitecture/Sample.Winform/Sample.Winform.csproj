@@ -102,12 +102,6 @@
     <None Include="icons\add-16.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sample.Core\Sample.Core.csproj">
-      <Project>{30b3c657-3d7d-406c-82c1-bff636a580d7}</Project>
-      <Name>Sample.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="icons\25.gif" />
   </ItemGroup>
   <ItemGroup>

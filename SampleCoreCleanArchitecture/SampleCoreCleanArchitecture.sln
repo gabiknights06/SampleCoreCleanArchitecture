@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Persistence.MySQL", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Service", "Sample.Service\Sample.Service.csproj", "{10227FA9-7D47-4DA7-96B9-7A42F5B0268E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Persistence.SQLite", "Sample.Persistence.SQLite\Sample.Persistence.SQLite.csproj", "{3FD0485D-ACE1-4B75-AEC7-FCCBE9AAE209}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Persistence.SQLite", "Sample.Persistence.SQLite\Sample.Persistence.SQLite.csproj", "{3FD0485D-ACE1-4B75-AEC7-FCCBE9AAE209}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Winform", "Sample.Winform\Sample.Winform.csproj", "{319C9F4F-CA1A-4E24-ACAF-8A1FFA7145C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3FD0485D-ACE1-4B75-AEC7-FCCBE9AAE209}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FD0485D-ACE1-4B75-AEC7-FCCBE9AAE209}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FD0485D-ACE1-4B75-AEC7-FCCBE9AAE209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{319C9F4F-CA1A-4E24-ACAF-8A1FFA7145C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319C9F4F-CA1A-4E24-ACAF-8A1FFA7145C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319C9F4F-CA1A-4E24-ACAF-8A1FFA7145C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319C9F4F-CA1A-4E24-ACAF-8A1FFA7145C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
