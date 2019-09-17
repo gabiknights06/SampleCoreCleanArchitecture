@@ -10,6 +10,8 @@ namespace Sample.Service.Interface
     public interface IPersonService<TData> : IBaseService<TData>
         where TData : IPerson
     {
-        List<Person> LoadAllReference(List<Person> person);
+        List<TData> FindRecord(string key, string value);
+
+        List<TData> LoadAllReference(List<Person> person);
     }
 }

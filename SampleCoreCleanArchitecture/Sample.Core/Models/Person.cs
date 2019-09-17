@@ -10,7 +10,6 @@ namespace Sample.Core.Models
         public Person()
         {
             CompanyRefence = new Company();
-            FullName = string.Empty;
             FirstName = string.Empty;
             MiddleName = string.Empty;
             LastName = string.Empty;
@@ -21,7 +20,20 @@ namespace Sample.Core.Models
             ModifiedTimestamp = DateTime.Now;
         }
         public Company CompanyRefence { get; set; }
-        public string FullName { get; set; }
+        public string FullName
+        {
+            get
+            {
+                if (MiddleName == string.Empty)
+                {
+                    return $"{ FirstName } {LastName}";
+                }
+                else
+                {
+                    return $"{ FirstName } { MiddleName } { LastName }";
+                }
+            }
+        }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }

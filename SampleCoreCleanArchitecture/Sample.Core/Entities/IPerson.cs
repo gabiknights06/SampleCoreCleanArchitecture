@@ -10,6 +10,6 @@ namespace Sample.Core.Entities
     {
         Company CompanyRefence { get; set; }
 
-        string FullName { get; set; }
+        string FullName { get; }
     }
 }

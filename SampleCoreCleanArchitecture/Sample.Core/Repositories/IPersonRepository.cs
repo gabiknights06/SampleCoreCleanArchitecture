@@ -8,5 +8,6 @@ namespace Sample.Core.Repositories
     public interface IPersonRepository<TData> : IBaseRepository<TData>
         where TData : IPerson
     {
+        List<TData> FindRecord(string key, string value);
     }
 }

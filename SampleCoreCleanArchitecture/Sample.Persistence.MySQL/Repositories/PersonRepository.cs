@@ -11,6 +11,16 @@ namespace Sample.Persistence.MySQL.Repositories
 {
     public class PersonRepository : IPersonRepository<Person>
     {
+        public List<Person> FindRecord(string key, string value)
+        {
+            using (MySqlConnection conn = new MySqlConnection(ConnectionManager.ConnectionString))
+            {
+                string query = $@"SELECT * FROM persons where { key } like '%{ value }%'";
+
+                return conn.Query<Person>(query).ToList();
+            }
+        }
+
         public int Insert(Person data)
         {
             using (MySqlConnection conn = new MySqlConnection(ConnectionManager.ConnectionString))
@@ -45,12 +55,22 @@ namespace Sample.Persistence.MySQL.Repositories
 
         public void Remove(Person data)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection conn = new MySqlConnection(ConnectionManager.ConnectionString))
+            {
+                string query = $@"DELETE from persons WHERE Id = {data.Id}";
+
+                conn.Execute(query, data);
+            }
         }
 
         public void Update(Person data)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection conn = new MySqlConnection(ConnectionManager.ConnectionString))
+            {
+                string query = $@"UPDATE persons set FirstName = @FirstName, MiddleName = @MiddleName, LastName = @LastName, RecordState = 2, ModifiedTimestamp = @ModifiedTimestamp from persons WHERE Id = {data.Id}";
+
+                conn.Execute(query, data);
+            }
         }
     }
 }

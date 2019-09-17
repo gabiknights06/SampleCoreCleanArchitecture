@@ -6,15 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using Sample.Core.Models;
 using Sample.Service.Interface;
 
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
 namespace Sample.API.Controllers
 {
-    [Route("persons")]
+    [Route("companies")]
     [Controller]
-    public class PersonController : Controller
+    public class CompanyController : Controller
     {
-        IPersonService<Person> _service;
+        ICompanyService<Company> _service;
 
-        public PersonController(IPersonService<Person> service)
+        public CompanyController(ICompanyService<Company> service)
         {
             _service = service;
         }
@@ -23,11 +25,11 @@ namespace Sample.API.Controllers
         [HttpGet]
         public IActionResult Get([FromRoute]int id)
         {
-             var result = _service.Load(id);
+            var result = _service.Load(id);
 
-             if (result == null) return NotFound();
+            if (result == null) return NotFound();
 
-             return Ok(result);
+            return Ok(result);
         }
 
         [Route("pages/{pageIndex?}/{itemCount?}")]
@@ -41,38 +43,26 @@ namespace Sample.API.Controllers
             return Ok(result);
         }
 
-
-        [Route("find/{key?}/{value?}")]
-        [HttpGet]
-        public IActionResult GetRecord([FromRoute]string key = "LastName", [FromRoute]string value = "")
-        {
-            var result = _service.FindRecord(key,value);
-
-            if (result == null) return NotFound();
-
-            return Ok(result);
-        }
-
         [Route("register")]
         [HttpPost]
-        public IActionResult Register([FromBody]Person data)
+        public IActionResult Register([FromBody]Company data)
         {
             try
             {
                 var result = _service.Insert(data);
 
-                return Ok(result);
+                return Ok();
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-           
+
         }
 
         [Route("update")]
         [HttpPut]
-        public IActionResult Put([FromBody]Person data)
+        public IActionResult Put([FromBody]Company data)
         {
             try
             {
@@ -84,16 +74,17 @@ namespace Sample.API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-           
+
         }
 
         [Route("delete")]
         [HttpDelete]
-        public IActionResult Delete([FromBody]Person data)
+        public IActionResult Delete([FromBody]Company data)
         {
             _service.Remove(data);
 
             return Ok();
         }
+
     }
 }

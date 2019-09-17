@@ -17,6 +17,12 @@ namespace Sample.Service
             _repository = repo;
             _companyRepository = companyRepository;
         }
+
+        public List<Person> FindRecord(string key, string value)
+        {
+            return _repository.FindRecord(key, value);
+        }
+
         public int Insert(Person data)
         {
             return _repository.Insert(data);
@@ -31,6 +37,7 @@ namespace Sample.Service
         {
             return LoadAllReference(_repository.LoadAll());
         }
+
         public List<Person> LoadAllReference(List<Person> person)
         {
             foreach (var p in person)
@@ -42,12 +49,13 @@ namespace Sample.Service
         }
         public void Remove(Person data)
         {
-            throw new NotImplementedException();
+            _repository.Remove(data);
         }
 
         public void Update(Person data)
         {
-            throw new NotImplementedException();
+            _repository.Update(data);
         }
+
     }
 }

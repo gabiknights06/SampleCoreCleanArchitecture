@@ -42,10 +42,11 @@ namespace Sample.API
             //services.AddTransient<IPersonRepository<Person>, PersonRepository>();
 
             // --SQLite
-            services.AddTransient<ICompanyRepository<Company>, Sample.Persistence.SQLite.Repositories.CompanyRepository>();
-            services.AddTransient<IPersonRepository<Person>, Sample.Persistence.SQLite.Repositories.PersonRepository>();
+           services.AddTransient<ICompanyRepository<Company>, Sample.Persistence.SQLite.Repositories.CompanyRepository>();
+           services.AddTransient<IPersonRepository<Person>, Sample.Persistence.SQLite.Repositories.PersonRepository>();
 
             services.AddTransient<IPersonService<Person>, PersonService>();
+            services.AddTransient<ICompanyService<Company>, CompanyService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +61,7 @@ namespace Sample.API
             }
 
             // --ConnectionString Of MySQL
-            //ConnectionManager.ConnectionString = "server=localhost;user=root;password=SilverPPS2010;port=3306;database=sample";
+           // ConnectionManager.ConnectionString = "server=localhost;user=root;password=SilverPPS2010;port=3306;database=sample";
 
             // --ConnectoinString of SQLite
             Sample.Persistence.SQLite.ConnectionManager.ConnectionString = @"Data Source =.\..\Sample.Persistence.SQLite\main.db;Version=3";
